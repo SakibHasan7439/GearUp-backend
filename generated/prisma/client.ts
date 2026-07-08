@@ -47,6 +47,11 @@ export { Prisma }
  */
 export type Category = Prisma.CategoryModel
 /**
+ * Model GearItem
+ * 
+ */
+export type GearItem = Prisma.GearItemModel
+/**
  * Model User
  * 
  */

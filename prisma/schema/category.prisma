@@ -1,5 +1,7 @@
 model Category {
-    id String @id @default(uuid())
+    id   String @id @default(uuid())
     name String @unique @db.VarChar()
     slug String @unique
+
+    gearItems GearItem[]
 }
