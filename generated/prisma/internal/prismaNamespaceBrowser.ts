@@ -87,9 +87,12 @@ export const GearItemScalarFieldEnum = {
   categoryId: 'categoryId',
   name: 'name',
   brand: 'brand',
+  price: 'price',
+  description: 'description',
+  totalQuantity: 'totalQuantity',
+  availableQuantity: 'availableQuantity',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  description: 'description'
+  updatedAt: 'updatedAt'
 } as const
 
 export type GearItemScalarFieldEnum = (typeof GearItemScalarFieldEnum)[keyof typeof GearItemScalarFieldEnum]
