@@ -6,6 +6,7 @@ import { globalErrorHandler } from "./middleware/globalErrorHandler";
 import { notFound } from "./middleware/notFound";
 import { userRoute } from "./modules/users/user.route";
 import { categoryRoute } from "./modules/category/category.route";
+import { gearItemRoute } from "./modules/gearItem/gearItem.route";
 
 const app : Application = express();
 
@@ -27,7 +28,7 @@ app.use("/api/auth", userRoute);
 
 app.use("/api", categoryRoute);
 
-
+app.use("/api", gearItemRoute);
 
 app.use(notFound);
 app.use(globalErrorHandler);
