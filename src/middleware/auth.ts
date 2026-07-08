@@ -28,8 +28,6 @@ export const auth = (...requiredRole: Role[]) => {
         ? req.headers.authorization.split(" ")[1]
         : req.headers.authorization;
 
-        console.log("token from auth", token);
-
         const verifiedToken = jwtUtils.verifyToken(token as string, config.jwt_access_secret as string);
 
         if(!verifiedToken.success){
