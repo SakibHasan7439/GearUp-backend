@@ -6,7 +6,7 @@ import { auth } from "../../middleware/auth";
 const router = Router();
 
 // Public
-// router.get('/categories', categoryController.getAllCategories);
+router.get('/categories', categoryController.getAllCategories);
 
 
 router.post('/admin/categories', auth(Role.ADMIN), categoryController.createNewCategory);
