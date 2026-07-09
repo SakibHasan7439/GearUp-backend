@@ -10,4 +10,6 @@ model User {
   gearItems GearItem[]
 
   rentalOrders RentalOrder[]
+
+  reviews Review[]
 }

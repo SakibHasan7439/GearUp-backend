@@ -62,6 +62,11 @@ export type RentalOrder = Prisma.RentalOrderModel
  */
 export type RentalOrderItem = Prisma.RentalOrderItemModel
 /**
+ * Model Review
+ * 
+ */
+export type Review = Prisma.ReviewModel
+/**
  * Model User
  * 
  */

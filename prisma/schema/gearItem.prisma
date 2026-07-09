@@ -16,4 +16,5 @@ model GearItem {
     @@index([userId])
     @@index([categoryId])
     rentalOrderItems RentalOrderItem[]
+    reviews Review[]
 }
