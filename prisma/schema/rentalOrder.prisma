@@ -10,4 +10,5 @@ model RentalOrder {
     // payment Payment[]
 
     @@index([customerId])
+    payments Payment[]
 }
