@@ -10,6 +10,7 @@ import { gearItemRoute } from "./modules/gearItem/gearItem.route";
 import { rentalOrderRoute } from "./modules/rentalOrder/rentalOrder.route";
 import { providerRoute } from "./modules/provider/provider.route";
 import { reviewRoute } from "./modules/review/review.route";
+import { paymentRoutes } from "./modules/payment/payment.route";
 
 const app : Application = express();
 
@@ -17,6 +18,8 @@ app.use(cors({
     origin: config.appUrl,
     credentials: true
 }));
+
+app.use("/api/payments/webhook", express.raw({ type: 'application/json' }));
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -34,6 +37,8 @@ app.use("/api", categoryRoute);
 app.use("/api", gearItemRoute);
 
 app.use("/api", rentalOrderRoute);
+
+app.use("/api/payments", paymentRoutes);
 
 app.use("/api/provider", providerRoute);
 
