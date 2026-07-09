@@ -13,7 +13,7 @@ const createRentalOrder = catchAsync(async(req: Request, res: Response, next: Ne
     sendResponse(res, {
         success: true,
         statusCode: httpStatus.CREATED,
-        message: "Category successfully created",
+        message: "Rental Order successfully created",
         data: result
     })
 });

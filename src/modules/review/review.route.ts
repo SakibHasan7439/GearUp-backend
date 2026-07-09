@@ -7,6 +7,5 @@ import { Role } from "../../../generated/prisma/enums";
 const router = Router();
 
 router.post("/",auth(Role.CUSTOMER), reviewController.createReview);
-router.get("/", reviewController.getReviews);
 
 export const reviewRoute = router;

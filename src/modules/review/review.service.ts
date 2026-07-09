@@ -27,6 +27,9 @@ const createReviewIntoDB = async(customerId: string, payload: IReview) => {
         data: {
             ...payload,
             customerId
+        },
+        include: {
+            gearItem: true
         }
     });
 
@@ -34,7 +37,30 @@ const createReviewIntoDB = async(customerId: string, payload: IReview) => {
 };
 
 const getReviewByGearItemFromDB = async(gearItemId: string) => {
+    const result = await prisma.gearItem.findMany({
+        where: { 
+            id: gearItemId 
+        },
+        include: {
+            user: {
+                select: {
+                    id: true,
+                    name: true
+                }
+            },
+            reviews: {
+                select : {
+                    rating: true,
+                    comment: true,
+                }
+            }
+        },
+        orderBy: {
+            createdAt: "desc"
+        }
+    });
 
+    return result;
 };
 
 export const reviewService = {
