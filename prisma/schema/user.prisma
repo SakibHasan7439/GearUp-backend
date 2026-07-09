@@ -8,4 +8,6 @@ model User {
   updatedAt DateTime @updatedAt
 
   gearItems GearItem[]
+
+  rentalOrders RentalOrder[]
 }
