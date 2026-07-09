@@ -8,6 +8,7 @@ import { userRoute } from "./modules/users/user.route";
 import { categoryRoute } from "./modules/category/category.route";
 import { gearItemRoute } from "./modules/gearItem/gearItem.route";
 import { rentalOrderRoute } from "./modules/rentalOrder/rentalOrder.route";
+import { providerRoute } from "./modules/provider/provider.route";
 
 const app : Application = express();
 
@@ -32,6 +33,8 @@ app.use("/api", categoryRoute);
 app.use("/api", gearItemRoute);
 
 app.use("/api", rentalOrderRoute);
+
+app.use("/api/provider", providerRoute);
 
 app.use(notFound);
 app.use(globalErrorHandler);
