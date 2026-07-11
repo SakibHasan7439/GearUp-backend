@@ -8,11 +8,12 @@ export const globalErrorHandler = (err:any, req:Request, res:Response, next:Next
     let errorMessage = err.message || "Internal Server Error";
     let errorName = err.name || "Internal Server Error";
 
-    if(err instanceof Prisma.PrismaClientValidationError){
-        statusCode = httpStatus.BAD_REQUEST;
-        errorMessage = "You have provided an incorrect field type of missing field"
+    // if(err instanceof Prisma.PrismaClientValidationError){
+    //     statusCode = httpStatus.BAD_REQUEST;
+    //     errorMessage = "You have provided an incorrect field type of missing field"
 
-    }else if(err instanceof Prisma.PrismaClientKnownRequestError){
+    // }else 
+        if(err instanceof Prisma.PrismaClientKnownRequestError){
         if(err.code === "P2002"){
             statusCode = httpStatus.BAD_REQUEST;
             errorMessage = "Duplicate key error";
