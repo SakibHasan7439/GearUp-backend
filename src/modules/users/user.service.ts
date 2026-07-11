@@ -56,9 +56,9 @@ const loginUserFromDB = async(payload: ILoginUserPayload) => {
         role: user.role
     };
 
-    const accessToken = jwtUtils.createToken(jwtPayload, config.jwt_access_secret as string, config.jwt_access_expires_in as string);
+    const accessToken = jwtUtils.createToken(jwtPayload, config.jwt_access_secret as string, config.jwt_access_expires_in as any);
 
-    const refreshToken = jwtUtils.createToken(jwtPayload, config.jwt_refresh_secret as string, config.jwt_refresh_expires_in as string);
+    const refreshToken = jwtUtils.createToken(jwtPayload, config.jwt_refresh_secret as string, config.jwt_refresh_expires_in as any);
 
     return {
         accessToken,
@@ -88,7 +88,7 @@ const refreshToken = async(payload: string) => {
     const accessToken = jwtUtils.createToken(
         jwtPayload,
         config.jwt_access_secret as string,
-        config.jwt_access_expires_in as string
+        config.jwt_access_expires_in as any
     );
 
     return {accessToken}

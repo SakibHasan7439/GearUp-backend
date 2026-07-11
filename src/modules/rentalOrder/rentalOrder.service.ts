@@ -29,7 +29,7 @@ const createRentalOrderIntoDB = async(customerId: string, payload: IRentalOrderP
                 quantity: item.quantity,
                 startDate: item.startDate,
                 endDate: item.endDate,
-                pricePerDay: gear?.price
+                pricePerDay: gear!.price
             });
 
             await tx.gearItem.update({
