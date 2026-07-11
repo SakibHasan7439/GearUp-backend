@@ -7,6 +7,7 @@ import httpStatus from "http-status";
 const createRentalOrder = catchAsync(async(req: Request, res: Response, next: NextFunction) => {
     const customerId = req.user?.id;
     const payload = req.body;
+    console.log(req.user)
 
     const result = await rentalOrderService.createRentalOrderIntoDB(customerId as string, payload);
 
