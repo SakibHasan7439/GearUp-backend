@@ -17,9 +17,12 @@ const createRentalOrderIntoDB = async(customerId: string, payload: IRentalOrderP
                 throw new Error(`Not enough stock for ${gear?.name}`)
             }
 
+            const startDate = new Date(item.startDate);
+            const endDate = new Date(item.endDate);
+
             const days = Math.ceil(
-                (new Date(item.endDate).getDate() - new Date(item.startDate).getDate()) / (1000 * 60 * 60 * 24)
-            );
+                (endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)
+            ) || 1;
 
             const price = gear?.price! * item.quantity * days;
             totalAmount += price;
@@ -27,8 +30,8 @@ const createRentalOrderIntoDB = async(customerId: string, payload: IRentalOrderP
             orderItemData.push({
                 gearItemId: item.gearItemId,
                 quantity: item.quantity,
-                startDate: item.startDate,
-                endDate: item.endDate,
+                startDate,
+                endDate,
                 pricePerDay: gear!.price
             });
 
